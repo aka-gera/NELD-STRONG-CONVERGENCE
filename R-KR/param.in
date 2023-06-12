@@ -15,4 +15,4 @@ Cut off radius   (sigma units) : 1.122462
 Matrix A  (Diagonalized)       : 3 3 0.20 0 0 0 -0.10 0 0 0 -0.10 
 Matrix S                       : 3 3 1 0 0 0 1 0 0 0 1  
 Matrix S^-1                    : 3 3 1 0 0 0 1 0 0 0 1  
-Use GenKR                      : 2    
+Use GenKR                      : 1    

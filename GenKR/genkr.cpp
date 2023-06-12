@@ -39,6 +39,9 @@ hamiltonian::hamiltonian(const input &I)
     sig = I.sig;
     p1 = 12.;
     p2 = 6.;
+	D = -4*eps*(pow(sig/dcut,p1) - pow(sig/dcut,p2));
+	C = 4.*eps*(p1*pow(sig/dcut,p1) - p2*pow(sig/dcut,p2))/dcut;
+
 
     nChainLength = 0;
     nChainFreq = np; // This must be at least chainLength, =np means a single chain.

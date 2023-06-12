@@ -29,25 +29,25 @@ DEFINES      = -Wextra -Wconversion
 #   Files to be compiled
 #---------------------------- 
 COMOBJ = input.o matrix.o hamiltonian.o rkr.o clist.o algorithm.o main.o 
-OBJlangav = ${COMOBJ} sampling1order.o langav.o  
+OBJlangavEM = ${COMOBJ} sampling1order.o langavEM.o  
 OBJlangavSEB = ${COMOBJ} sampling1order.o langavSEB.o
 OBJlangavSEAC = ${COMOBJ} sampling1order.o langavSEAC.o
 OBJlangavABAO = ${COMOBJ} sampling1order.o langavABAO.o
 OBJlangavSOILEA = ${COMOBJ} sampling2order.o langavSOILEA.o
 OBJlangavSOILEB = ${COMOBJ} sampling2order.o langavSOILEB.o
 
-default:  ${OBJlangav}
+default:  ${OBJlangavEM}
 	@echo 'Targets:' 
-	@echo '  langav - Euler  (default)' 
-	@echo '  langav - SEB' 
-	@echo '  langav - SEAC' 
-	@echo '  langav - ABAO' 
-	@echo '  langav - SOILE-A' 
-	@echo '  langav - SOILE-B' 
-	@echo '  clean - remove object files'
+	@echo '  em     - Euler    R-KR (default)' 
+	@echo '  seb    - SEB      R-KR' 
+	@echo '  seac   - SEAC     R-KR' 
+	@echo '  abao   - ABAO     R-KR' 
+	@echo '  soilea - SOILE-A  R-KR' 
+	@echo '  soileb - SOILE-B  R-KR' 
+	@echo '  clean - remove object files' 
 	@echo ' '
 	@echo ' '
-	${CC} ${CPPFLAGS} ${DEFINES} ${OBJlangav}  -o langav ${LDFLAGS} ${LIBRARY} 
+	${CC} ${CPPFLAGS} ${DEFINES} ${OBJlangavEM}  -o em ${LDFLAGS} ${LIBRARY} 
 seb:  ${OBJlangavSEB}
 	${CC} ${CPPFLAGS} ${DEFINES} ${OBJlangavSEB}  -o seb ${LDFLAGS} ${LIBRARY}
 seac:  ${OBJlangavSEAC}
@@ -61,6 +61,6 @@ soileb:  ${OBJlangavSOILEB}
 
 
 clean: 
-	rm -f *.o langav seb saec abao soilea soileb
+	rm -f *.o em seb saec abao soilea soileb
 
 

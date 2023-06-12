@@ -19,16 +19,26 @@ void hamiltonian::deform_box(double dt)
 
     offdiag(0, 0) = cos(rkr_beta * nPer);
     offdiag(0, 1) = -sin(rkr_beta * nPer);
+    offdiag(0, 2) = 0;
     offdiag(1, 0) = sin(rkr_beta * nPer);
     offdiag(1, 1) = cos(rkr_beta * nPer);
-
+    offdiag(1, 2) = 0;
+    offdiag(2, 0) = 0;
+    offdiag(2, 1) = 0;
+    offdiag(2, 2) = 1;
+	
     offdiaginv(0, 0) = cos(rkr_beta * nPer);
     offdiaginv(0, 1) = sin(rkr_beta * nPer);
+    offdiaginv(0, 2) = 0;
     offdiaginv(1, 0) = -sin(rkr_beta * nPer);
     offdiaginv(1, 1) = cos(-rkr_beta * nPer);
-
+    offdiaginv(1, 2) = 0;
+    offdiaginv(2, 0) = 0;
+    offdiaginv(2, 1) = 0;
+    offdiaginv(2, 2) = 1;
+	
     L = S * expAt * offdiag * Vinv;
-    Linv = V * offdiaginv * expmAt * Sinv;
+    Linv = V * offdiaginv * expmAt * Sinv; 
 }
 
 hamiltonian::hamiltonian(const input &I)
@@ -48,6 +58,9 @@ hamiltonian::hamiltonian(const input &I)
     sig = I.sig;
     p1 = 12.;
     p2 = 6.;
+
+	D = -4*eps*(pow(sig/dcut,p1) - pow(sig/dcut,p2));
+	C = 4.*eps*(p1*pow(sig/dcut,p1) - p2*pow(sig/dcut,p2))/dcut;
 
     nChainLength = 0;
     nChainFreq = np; // This must be at least chainLength, =np means a single chain.
