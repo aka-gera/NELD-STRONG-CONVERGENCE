@@ -4,6 +4,7 @@ zero_index = 26;
 en = en_orig(zero_index:rw_orig(1),:);
 rw = size(en);
 avg2 = zeros(rw(1),rw(2));
+
 count = 0;
 for num = 1 
         en_orig = fscanfMat('data/energy_diff_'+string(num)+'.dat');
