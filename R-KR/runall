@@ -1,0 +1,26 @@
+# This loops over 10 values of uniaxial stretching flow. 
+# It needs a param.dat with the input A matrix line deleted.
+#
+# To run in the background, use the command
+#           nohup nice bash ./runall 1 > run1.out &
+# Where you can replace the 1 to indicate other run numbers.
+#for i in {0,1,2,3,4,5}
+mkdir data
+
+for i in {1..200}
+do
+	echo $i
+	./langav
+	cp energy.dat data/energy_$i.dat
+	cp energy_diff.dat data/energy_diff_$i.dat
+	cp ql2norms.dat data/ql2norms_$i.dat
+	cp pl2norms.dat data/pl2norms_$i.dat
+	cp out_param.dat data/out_param_$i.dat
+#	mkdir chain_langav_$i
+#	cp langav param.in chain_langav_$i
+#	cd chain_langav_$i
+#	j=$(echo "scale=25;$i*0.05"|bc)
+#	k=$(echo "scale=25;$j*2"|bc)
+#	echo 3 3 $k 0 0 0 -$j 0 0 0 -$j | ./langav
+#	cd ..
+done

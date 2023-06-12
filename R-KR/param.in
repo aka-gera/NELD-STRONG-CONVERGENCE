@@ -1,0 +1,18 @@
+Time step                 (dt) : 0.000025 
+Thermalization time (T)        : 2.000          
+Simulation time (T)            : 1.0        
+Number of Xmakemol outputs     : 1   
+Number of Observable outputs   : 125           
+Friction coefficient      (xi) : 1.  
+Inverse temperature     (beta) : 1.    
+Particles in x        (Ndim_x) : 12    
+Particles in y        (Ndim_y) : 12    
+Particles in z        (Ndim_z) : 12      
+Elementary cell size       (a) : 1.25     
+WCA equilibrium distance (sig) : 1. 
+WCA energy epsilon       (eps) : 1.  
+Cut off radius   (sigma units) : 1.122462 
+Matrix A  (Diagonalized)       : 3 3 0.20 0 0 0 -0.10 0 0 0 -0.10 
+Matrix S                       : 3 3 1 0 0 0 1 0 0 0 1  
+Matrix S^-1                    : 3 3 1 0 0 0 1 0 0 0 1  
+Use GenKR                      : 2    
